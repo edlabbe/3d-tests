@@ -10,6 +10,9 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/common/io.h>
 
+//for load 
+#include "io.h"
+
 #include "factory/edge_weight_computer_factory.h"
 #include "factory/graph_builder_factory.h"
 
@@ -48,5 +51,13 @@ int main(int argc, char** argv)
                                 , wc_factory.getUsage ().c_str ()
                                 , gb_factory.getUsage ().c_str ());
         return (1);
+    }
+
+    typename PointCloudT::Ptr cloud (new PointCloudT);
+    typename NormalCloudT::Ptr normals (new NormalCloudT);
+
+    if (!load<PointT> (argv[1], cloud, normals))
+    {
+         return (1);
     }
 }

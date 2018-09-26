@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/3d-tests",
-            "args": [],
+            "args": ["data/test1.pcd"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
